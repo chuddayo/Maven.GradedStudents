@@ -1,8 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
 public class Classroom {
     public Student[] students;
@@ -25,7 +23,7 @@ public class Classroom {
     public void addStudent(Student student) {
         ArrayList<Student> newStudentList = new ArrayList<>(Arrays.asList(students));
         newStudentList.add(student);
-        students = newStudentList.toArray(new Student[newStudentList.size()]);
+        students = newStudentList.toArray(new Student[0]);
     }
     public void removeStudent(String firstName, String lastName) {
         // removal without leaving null values
@@ -37,7 +35,16 @@ public class Classroom {
                 i--;
             }
         }
-        students = newStudentList.toArray(new Student[newStudentList.size()]);
+        students = newStudentList.toArray(new Student[0]);
+    }
+    public Student[] getStudentsByScore() {
+        ArrayList<Student> newStudentList = new ArrayList<>(Arrays.asList(students));
+
+        Comparator<Student> byExamScore = Comparator.comparing(Student::getAverageExamScore);
+        Comparator<Student> byLastName = Comparator.comparing(Student::getLastName);
+        newStudentList.sort(byExamScore.reversed().thenComparing(byLastName));
+
+        return newStudentList.toArray(new Student[0]);
     }
     public Student[] getStudents() {
         return students;

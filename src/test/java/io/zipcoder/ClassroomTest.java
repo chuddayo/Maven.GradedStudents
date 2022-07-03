@@ -67,4 +67,27 @@ public class ClassroomTest {
         String postEnrollmentAsString = Arrays.toString(postEnrollment);
         Assert.assertNotEquals(postRemovalAsString, postEnrollmentAsString);
     }
+
+    @Test
+    public void getStudentsByScoreTest() {
+        // Given
+        Double[] s1Scores = { 100.0, 150.0 };
+        Double[] s2Scores = { 225.0, 235.0 };
+        Double[] s3Scores = { 100.0, 150.0 };
+        Double[] s4Scores = { 25.0, 35.0 };
+
+        Student s1 = new Student("student", "one", s1Scores);
+        Student s2 = new Student("student", "two", s2Scores);
+        Student s3 = new Student("student", "apple", s3Scores);
+        Student s4 = new Student("bad", "four", s4Scores);
+
+        Student[] students = {s1,s2,s3,s4};
+        Classroom classroom = new Classroom(students);
+
+        // When
+        Student[] sortedClass = classroom.getStudentsByScore();
+
+        // Then
+        System.out.println(Arrays.toString(sortedClass));
+    }
 }

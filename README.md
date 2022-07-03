@@ -44,7 +44,7 @@
 <br><br><br><br><br>
 
 ### Part 1.2; Defining construction
-* Define a `Student` constructor whose parameters are used to initalize its instance variables.
+* Define a `Student` constructor whose parameters are used to initialize its instance variables.
 * The `Student` constructor has expected parameters of
 	* `String` representative of a `firstName` 
 	* `String` representative of a `lastName`
@@ -290,7 +290,7 @@
 <br><br><br><br><br>
 
 ### Part 2.2; Defining construction
-* Define a `Classroom` constructor whose parameters are used to initalize its instance variable. The class `Classroom` should support 3 different ways of being constructed.
+* Define a `Classroom` constructor whose parameters are used to initialize its instance variable. The class `Classroom` should support 3 different ways of being constructed.
 	
 	1. The class `Classroom` should define a constructor which takes an argument of an `int` representative of the `maxNumberOfStudents` that this `Classroom` can hold.
 	
@@ -435,7 +435,7 @@
 
 * **Define method `getStudentsByScore()`**
 	* The class `Classroom` should define a method `getStudentsByScore()` which returns an array representation of `Student` objects sorted in descending order by score. 
-	* If two students have the same class average, order them lexigraphically.
+	* If two students have the same class average, order them lexicographically.
 
 
 
