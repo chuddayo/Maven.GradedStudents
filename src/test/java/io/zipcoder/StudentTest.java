@@ -78,4 +78,26 @@ public class StudentTest {
         // Then
         Assert.assertEquals(expected, output);
     }
+
+    @Test
+    public void toStringTest() {
+        // : Given
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
+        Student student = new Student(firstName, lastName, examScores);
+        String expected = "Student Name: Leon Hunter\n" +
+                "> Average Score: 125\n" +
+                "> Exam Scores:\n" +
+                "\tExam 1 -> 100\n" +
+                "\tExam 2 -> 150\n" +
+                "\tExam 3 -> 250\n" +
+                "\tExam 4 -> 0";
+
+        // When
+        String output = student.toString();
+
+        // Then
+        Assert.assertEquals(expected, output);
+    }
 }

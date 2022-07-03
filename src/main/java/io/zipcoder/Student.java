@@ -39,6 +39,12 @@ public class Student {
         Double sum = examScores.stream().reduce(Double::sum).get();
         return sum/getNumberOfExamsTaken();
     }
+    @Override
+    public String toString() {
+        return "Student Name: " + firstName + " " + lastName +
+                (String.format("\n> Average Score: %.0f", getAverageExamScore()) + "\n> ") +
+                getExamScores();
+    }
     public String getFirstName() {
         return firstName;
     }
