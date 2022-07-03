@@ -3,6 +3,8 @@ package io.zipcoder;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Optional;
+
 public class StudentTest {
     @Test
     public void getExamScoresTest() {
@@ -14,11 +16,11 @@ public class StudentTest {
 
         // When
         String output = student.getExamScores();
-        String expected = "Exam Scores:\n" +
-                "        Exam 1 -> 100\n" +
-                "        Exam 2 -> 95\n" +
-                "        Exam 3 -> 123\n" +
-                "        Exam 4 -> 96";
+        String expected = "Exam Scores:" +
+                "\n\tExam 1 -> 100" +
+                "\n\tExam 2 -> 95" +
+                "\n\tExam 3 -> 123" +
+                "\n\tExam 4 -> 96";
 
         // Then
         Assert.assertEquals(expected, output);
@@ -49,11 +51,31 @@ public class StudentTest {
         Double[] examScores = { 100.0 };
         Student student = new Student(firstName, lastName, examScores);
 
+        String expected = "Exam Scores:\n" +
+                "\tExam 1 -> 150";
+
         // When
         student.setExamScores(1, 150.0);
         String output = student.getExamScores();
 
+
         // Then
-        //Assert.assertEquals(expected, output);
+        Assert.assertEquals(expected, output);
+    }
+
+    @Test
+    public void getAverageExamScoreTest() {
+        // Given
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
+        Student student = new Student(firstName, lastName, examScores);
+        Double expected = 125.0;
+
+        // When
+        Double output = student.getAverageExamScore();
+
+        // Then
+        Assert.assertEquals(expected, output);
     }
 }

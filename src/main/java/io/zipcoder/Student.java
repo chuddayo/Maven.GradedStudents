@@ -23,16 +23,21 @@ public class Student {
         String examScoresStr = "Exam Scores:";
         int numScores = getNumberOfExamsTaken();
         for (int i = 0; i < numScores; i++) {
-            examScoresStr += String.format("\n        Exam %d -> %.0f",
+            examScoresStr += String.format("\n\tExam %d -> %.0f",
                     i+1,  examScores.get(i));
         }
         return examScoresStr;
     }
     public void setExamScores(int examNumber, double newScore) {
-        examScores.set(examNumber, newScore);
+        examScores.set(examNumber-1, newScore);
     }
     public void addExamScore(double examScore) {
         examScores.add(examScore);
+    }
+    public Double getAverageExamScore() {
+        // we could check here for non-zero examScores size
+        Double sum = examScores.stream().reduce(Double::sum).get();
+        return sum/getNumberOfExamsTaken();
     }
     public String getFirstName() {
         return firstName;
