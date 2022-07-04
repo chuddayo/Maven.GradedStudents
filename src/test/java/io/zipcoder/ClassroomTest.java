@@ -82,15 +82,15 @@ public class ClassroomTest {
         Student s3 = new Student("student", "apple", s3Scores);
         Student s4 = new Student("bad", "four", s4Scores);
 
-        Student[] students = {s1,s2,s3,s4};
+        Student[] students = {s1, s2, s3, s4};
         Classroom classroom = new Classroom(students);
+        Student[] expected = {s2, s3, s1, s4};
 
         // When
         Student[] sortedClass = classroom.getStudentsByScore();
 
         // Then
-        // TODO change sout to an assert
-        System.out.println(Arrays.toString(sortedClass));
+        Assert.assertEquals(expected, sortedClass);
     }
 
     @Test

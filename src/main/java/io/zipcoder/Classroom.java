@@ -37,6 +37,7 @@ public class Classroom {
         }
         students = newStudentList.toArray(new Student[0]);
     }
+
     public Student[] getStudentsByScore() {
         ArrayList<Student> newStudentList = new ArrayList<>(Arrays.asList(students));
         // descending avg exam, then sorted by last name
@@ -46,6 +47,7 @@ public class Classroom {
 
         return newStudentList.toArray(new Student[0]);
     }
+
     public HashMap<Student, String> getGradeBook() {
         HashMap<Student, String> gradeBook = new HashMap<>();
         Student[] sortedStudents = getStudentsByScore();
